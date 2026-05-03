@@ -10,16 +10,21 @@
     tools:context=".MainActivity">
 
     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:id="@+id/mainContainer"
         android:visibility="visible">
         <LinearLayout
-            android:id="@+id/searchContainer"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+            android:id="@+id/searchContainer"
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingTop="40dp"
+            android:paddingTop="30dp"
             android:layout_marginBottom="10dp">
             <EditText
                 android:id="@+id/et_city"
@@ -33,9 +38,10 @@
                 android:singleLine="true"
                 android:background="@drawable/search_bg"/>
         </LinearLayout>
-        <LinearLayout
+            <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
             android:id="@+id/addressContainer"
             android:orientation="vertical"
             android:gravity="center">
@@ -55,18 +61,18 @@
             </TextView>
 
         </LinearLayout>
-        <LinearLayout
+            <LinearLayout
             android:id="@+id/overviewContainer"
             android:orientation="vertical"
-            android:layout_centerInParent="true"
             android:layout_width="match_parent"
-            android:layout_height="500dp">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/weather_image"
                 android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center">
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:contentDescription="Image of the current weather">
             </ImageView>
             <TextView
                 android:id="@+id/status"
@@ -90,7 +96,9 @@
                 android:orientation="horizontal"
                 android:gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
 
                 <TextView
                     android:id="@+id/feels_like"
@@ -110,12 +118,13 @@
                 </TextView>
             </LinearLayout>
         </LinearLayout>
-        <LinearLayout
+            <LinearLayout
             android:id="@+id/detailsContainer"
             android:orientation="vertical"
             android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
-            android:layout_height="320dp">
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp">
             <LinearLayout
                 android:orientation="horizontal"
                 android:weightSum="3"
@@ -349,6 +358,7 @@
                 </Space>
             </LinearLayout>
         </LinearLayout>
+        </LinearLayout>
 
     </RelativeLayout>
 
@@ -370,8 +380,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bottomSheet"
         android:layout_width="match_parent"
-        android:layout_height="450dp"
-        android:layout_gravity="bottom"
+        android:layout_height="wrap_content"
+        android:paddingBottom="30dp"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
         <include layout="@layout/bottom_sheet_layout" />
