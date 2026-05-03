@@ -52,7 +52,7 @@ class MainActivity : ComponentActivity() {
         }
 
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-        weatherTask().execute("Sofia,bg")
+        weatherTask().execute("София")
     }
     inner class weatherTask() : AsyncTask<String, Void, String>()
     {
@@ -69,9 +69,9 @@ class MainActivity : ComponentActivity() {
             var forecastResponse: String?
             try
             {
-                response = URL("https://api.openweathermap.org/data/2.5/weather?q=$city&units=metric&appid=$API")
+                response = URL("https://api.openweathermap.org/data/2.5/weather?q=$city&units=metric&lang=bg&appid=$API")
                     .readText(Charsets.UTF_8)
-                forecastResponse = URL("https://api.openweathermap.org/data/2.5/forecast?q=$city&units=metric&appid=$API")
+                forecastResponse = URL("https://api.openweathermap.org/data/2.5/forecast?q=$city&units=metric&lang=bg&appid=$API")
                     .readText(Charsets.UTF_8)
             }
             catch (e: Exception)
@@ -85,7 +85,7 @@ class MainActivity : ComponentActivity() {
         override fun onPostExecute(result: String?) {
             if (result == null) {
                 findViewById<TextView>(R.id.errortext).apply {
-                    text = "City not found"
+                    text = "Градът не е намерен"
                     visibility = View.VISIBLE
                 }
                 return
@@ -144,12 +144,12 @@ class MainActivity : ComponentActivity() {
                 val weather = currentweather.getJSONArray("weather").getJSONObject(0)
                 val clouds = currentweather.getJSONObject("clouds")
                 val updatedAt: Long = currentweather.getLong("dt")
-                val updatedAtText = "Updated at: " + SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(Date(updatedAt * 1000))
+                val updatedAtText = "Обновено: " + SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(Date(updatedAt * 1000))
                 val temp = round(main.getString("temp").toFloat()).toInt()
                 val temp_final = temp.toString() + "°C"
                 val feels_like = round(main.getString("feels_like").toFloat()).toInt()
-                val feels_like_final = "Feels like: " + feels_like.toString() + "°C"
-                val clouds_all = "Cloudy: " + clouds.getString("all") + " %"
+                val feels_like_final = "Усеща се като: " + feels_like.toString() + "°C"
+                val clouds_all = clouds.getString("all") + " %"
                 val pressure = main.getString("pressure")
                 val humidity = main.getString("humidity")
                 val sunrise:Long = sys.getLong("sunrise")
@@ -165,12 +165,12 @@ class MainActivity : ComponentActivity() {
                 findViewById<TextView>(R.id.status).text = weatherDescription.capitalize()
                 findViewById<TextView>(R.id.temp).text = temp_final
                 findViewById<TextView>(R.id.feels_like).text = feels_like_final
-                findViewById<TextView>(R.id.clouds).text = clouds_all
                 findViewById<TextView>(R.id.sunrise).text = SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date(sunrise*1000))
                 findViewById<TextView>(R.id.sunset).text = SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date(sunset*1000))
                 findViewById<TextView>(R.id.wind).text = windSpeed + " m/s WNW"
                 findViewById<TextView>(R.id.pressure).text = pressure + " hPa"
                 findViewById<TextView>(R.id.humidity).text = humidity + " %"
+                findViewById<TextView>(R.id.cloudy).text = clouds_all
                 findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
                 findViewById<RelativeLayout>(R.id.mainContainer).visibility = View.VISIBLE
                 //Current Weather end-------------------------------------------------------------------------------------------------------------------------------

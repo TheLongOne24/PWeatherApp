@@ -31,7 +31,7 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
-                android:hint="Search city..."
+                android:hint="Търсене..."
                 android:padding="12dp"
                 android:inputType="text"
                 android:imeOptions="actionSearch"
@@ -49,13 +49,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/address"
-                android:text="Location"
+                android:text="Локация"
                 android:textSize="24sp">
             </TextView>
             <TextView
                 android:id="@+id/updated_at"
                 android:textSize="14sp"
-                android:text="updated_at"
+                android:text="Обновено на:"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
             </TextView>
@@ -78,7 +78,7 @@
                 android:id="@+id/status"
                 android:textSize="18sp"
                 android:layout_gravity="center"
-                android:text="Clear Sky"
+                android:text="Чисто небе"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
             </TextView>
@@ -102,17 +102,7 @@
 
                 <TextView
                     android:id="@+id/feels_like"
-                    android:text="Feels like:"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                </TextView>
-                <Space
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content">
-                </Space>
-                <TextView
-                    android:id="@+id/clouds"
-                    android:text="Clouds"
+                    android:text="Усеща се като:"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                 </TextView>
@@ -150,7 +140,7 @@
                     </Space>
                     <TextView
                         android:textSize="12sp"
-                        android:text="Sunrise"
+                        android:text="Изгрев"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
                     </TextView>
@@ -186,7 +176,7 @@
                     </Space>
                     <TextView
                         android:textSize="12sp"
-                        android:text="Sunset"
+                        android:text="Залез"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
                     </TextView>
@@ -222,7 +212,7 @@
                     </Space>
                     <TextView
                         android:textSize="12sp"
-                        android:text="Wind"
+                        android:text="Вятър"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
                     </TextView>
@@ -268,7 +258,7 @@
                     </Space>
                     <TextView
                         android:textSize="12sp"
-                        android:text="Pressure"
+                        android:text="Налягане"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
                     </TextView>
@@ -304,7 +294,7 @@
                     </Space>
                     <TextView
                         android:textSize="12sp"
-                        android:text="Humidity"
+                        android:text="Влажност"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
                     </TextView>
@@ -331,7 +321,7 @@
                     <ImageView
                         android:layout_width="25dp"
                         android:layout_height="25dp"
-                        android:src="@drawable/info"
+                        android:src="@drawable/cloud"
                         android:tint="@color/white">
                     </ImageView>
                     <Space
@@ -340,12 +330,12 @@
                     </Space>
                     <TextView
                         android:textSize="12sp"
-                        android:text="Info"
+                        android:text="Облачност"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
                     </TextView>
                     <TextView
-                        android:id="@+id/info"
+                        android:id="@+id/cloudy"
                         android:textSize="14sp"
                         android:text="5:30am"
                         android:layout_width="wrap_content"
